@@ -1,52 +1,108 @@
 import 'package:flutter/material.dart';
-
-import 'practice/identity_card.dart';
+import 'package:flutter_practice/practice/custom_class.dart';
+import 'package:flutter_practice/practice/identity_card.dart';
+//import 'practice/identity_card.dart';
 
 void main() {
   runApp(
     MaterialApp(
-      home: MyApp(),
+      home: dataList(),
     ),
   );
 }
 
-class MyApp extends StatefulWidget {
+//to call and perform actions on custom class
+class dataList extends StatefulWidget {
   @override
-  _MyAppState createState() => _MyAppState();
+  _dataListState createState() => _dataListState();
 }
 
-class _MyAppState extends State<MyApp> {
+class _dataListState extends State<dataList> {
+  List<S_data> data = [
+    S_data(name: 'Aneeza Zafar', rollnum: '0261-BSCS-18'),
+    S_data(name: 'Khadija Khalid', rollnum: '0265-BSCS-18'),
+    S_data(name: 'Asma Fiaz', rollnum: '0273-BSCS-18'),
+    S_data(name: 'Mahnoor Tariq', rollnum: '0227-BSCS-18'),
+  ];
+  // @override
+  // void initState() {
+  //   // TODO: implement initState
+  //   S_data d = data[0];
+  //   print(d.name);
+  //   super.initState();
+  // }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(),
-      body: Row(
+      body: Column(
         children: [
-          Container(
-            height: 100,
-            width: 100,
-            child: Image(
-              image: AssetImage('images/1.jpg'),
-            ),
-          ),
-          card(
-            image: 'images/1.jpg',
-            name: 'Aneeza Zafar',
-            rollnum: '0261-BSCS-18',
-            section: 'E1',
-            semester: 'Semester 6 passed',
-            email: 'Aneezazafar2018@gmail.com',
-          ),
-          identity_card(
-              image: 'images/1.jpg',
-              name: 'Aneeza Zafar',
-              rollnum: '0261-BSCS-18',
-              section: 'E1',
-              semester: 'Semester 6 passed',
-              email: 'Aneezazafar2018@gmail.com',
-              uni: 'GCU, Lahore'),
+          ListView.builder(
+            shrinkWrap: true,
+            //scrollDirection: Axis.vertical,
+            //physics: NeverScrollableScrollPhysics(),
+            //physics: FloatingLabelBehavior.never(),
+            itemCount: data.length,
+            itemBuilder: (context, index) {
+              return Column(
+                children: [
+                  Container(
+                    padding: EdgeInsets.symmetric(vertical: 1, horizontal: 100),
+                    margin: EdgeInsets.symmetric(vertical: 1, horizontal: 100),
+                    child: Card(
+                      child: Row(
+                        children: [
+                          Text(data[index].name),
+                          SizedBox(
+                            width: 20,
+                          ),
+                          Text(data[index].rollnum),
+                        ],
+                      ),
+                    ),
+                  ), //Text(data[index][S_data].name),
+                ],
+              );
+            },
+          )
         ],
       ),
     );
   }
 }
+// to call identity_card class
+// class MyApp extends StatefulWidget {
+//   @override
+//   _MyAppState createState() => _MyAppState();
+// }
+//
+// class _MyAppState extends State<MyApp> {
+//   @override
+//   Widget build(BuildContext context) {
+//     return Scaffold(
+//       appBar: AppBar(),
+//       body: Row(
+//         children: [
+//           //for identity class
+//           card(
+//             image: 'images/1.jpg',
+//             name: 'Aneeza Zafar',
+//             rollnum: '0261-BSCS-18',
+//             section: 'E1',
+//             semester: 'Semester 6 passed',
+//             email: 'Aneezazafar2018@gmail.com',
+//           ),
+//           identity_card(
+//               image: 'images/1.jpg',
+//               name: 'Aneeza Zafar',
+//               rollnum: '0261-BSCS-18',
+//               section: 'E1',
+//               semester: 'Semester 6 passed',
+//               email: 'Aneezazafar2018@gmail.com',
+//               uni: 'GCU, Lahore'),
+//         ],
+//       ),
+//     );
+//   }
+// }
