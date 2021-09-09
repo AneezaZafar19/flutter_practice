@@ -95,7 +95,7 @@ class identity_card extends StatelessWidget {
   }
 }
 
-class card extends StatefulWidget {
+class cards extends StatefulWidget {
   final String image;
   final String name;
   final String rollnum;
@@ -103,7 +103,7 @@ class card extends StatefulWidget {
   final String semester;
   final String email;
 
-  const card(
+  const cards(
       {Key key,
       this.image,
       this.name,
@@ -114,10 +114,10 @@ class card extends StatefulWidget {
       : super(key: key);
 
   @override
-  _cardState createState() => _cardState();
+  _cardsState createState() => _cardsState();
 }
 
-class _cardState extends State<card> {
+class _cardsState extends State<cards> {
   @override
   Widget build(BuildContext context) {
     return Container(

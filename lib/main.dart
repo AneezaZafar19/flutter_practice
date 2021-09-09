@@ -26,6 +26,30 @@ class _mapListState extends State<mapList> {
     S_data(name: 'Mahnoor Tariq', rollnum: '0227-BSCS-18'),
   ];
   List<String> num = ['1', '2', '3', '4'];
+  Widget cdata(e) {
+    return Card(
+      child: Row(
+        children: [
+          Text(
+            e.name,
+            style: TextStyle(
+              fontSize: 18,
+            ),
+          ),
+          SizedBox(
+            width: 20,
+          ),
+          Text(
+            e.rollnum,
+            style: TextStyle(
+              fontSize: 18,
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -37,7 +61,7 @@ class _mapListState extends State<mapList> {
             }).toList(),
           ),
           Column(
-            children: num.map((e) => Text(e)).toList(),
+            children: data.map((e) => cdata(e)).toList(),
           ),
           Column(
             children: data.map((e) {
