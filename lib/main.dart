@@ -27,25 +27,32 @@ class _mapListState extends State<mapList> {
   ];
   List<String> num = ['1', '2', '3', '4'];
   Widget cdata(e) {
-    return Card(
-      child: Row(
-        children: [
-          Text(
-            e.name,
-            style: TextStyle(
-              fontSize: 18,
-            ),
+    return Container(
+      padding: EdgeInsets.symmetric(horizontal: 50),
+      child: Card(
+        margin: EdgeInsets.fromLTRB(16, 16, 16, 0),
+        child: Padding(
+          padding: EdgeInsets.all(12),
+          child: Row(
+            children: [
+              Text(
+                e.name,
+                style: TextStyle(
+                  fontSize: 18,
+                ),
+              ),
+              SizedBox(
+                width: 20,
+              ),
+              Text(
+                e.rollnum,
+                style: TextStyle(
+                  fontSize: 18,
+                ),
+              ),
+            ],
           ),
-          SizedBox(
-            width: 20,
-          ),
-          Text(
-            e.rollnum,
-            style: TextStyle(
-              fontSize: 18,
-            ),
-          ),
-        ],
+        ),
       ),
     );
   }
@@ -57,7 +64,12 @@ class _mapListState extends State<mapList> {
         children: [
           Column(
             children: num.map((e) {
-              return Text(e);
+              return Text(
+                e,
+                style: TextStyle(
+                  fontSize: 18,
+                ),
+              );
             }).toList(),
           ),
           Column(
@@ -65,7 +77,12 @@ class _mapListState extends State<mapList> {
           ),
           Column(
             children: data.map((e) {
-              return Text(e.name);
+              return Text(
+                e.name,
+                style: TextStyle(
+                  fontSize: 18,
+                ),
+              );
             }).toList(),
           ),
         ],
